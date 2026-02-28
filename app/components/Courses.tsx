@@ -37,9 +37,9 @@ export default function Courses() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
                         className="max-w-2xl"
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">
@@ -51,9 +51,9 @@ export default function Courses() {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
                     >
                         <Link href={`/${locale}/courses`}>
                             <button className="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-semibold hover:text-teal-700 dark:hover:text-teal-300 transition-colors group border border-teal-200 dark:border-teal-900/50 hover:border-teal-400 dark:hover:border-teal-700 px-5 py-2.5 rounded-xl hover:bg-teal-50 dark:hover:bg-teal-900/30">
@@ -74,8 +74,8 @@ export default function Courses() {
                     {courses.map((course, index) => (
                         <motion.div
                             key={index}
-                            variants={cardVariants}
-                            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                            variants={typeof window !== 'undefined' && window.innerWidth > 768 ? cardVariants : { hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                            whileHover={typeof window !== 'undefined' && window.innerWidth > 768 ? { y: -8, transition: { duration: 0.2 } } : {}}
                             className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:border-teal-200 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-xl dark:hover:shadow-teal-900/20"
                         >
                             <Link href={`/${locale}/courses/${course.id}`} className="flex flex-col h-full group/link">

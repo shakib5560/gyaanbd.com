@@ -9,8 +9,8 @@ export default function CTA() {
 
     return (
         <section className="py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
-            {/* Subtle floating background shapes */}
-            <div className="absolute inset-0 pointer-events-none">
+            {/* Subtle floating background shapes - Hidden on mobile */}
+            <div className="absolute inset-0 pointer-events-none hidden md:block">
                 <motion.div
                     animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
                     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -25,9 +25,9 @@ export default function CTA() {
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                     className="bg-white dark:bg-slate-800 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.07)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-slate-100 dark:border-slate-700 py-16 px-8 md:px-16 flex flex-col items-center"
                 >

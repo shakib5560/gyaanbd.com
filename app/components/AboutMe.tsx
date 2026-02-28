@@ -9,17 +9,17 @@ export default function AboutMe() {
 
     return (
         <section className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-            {/* Background elements */}
-            <div className="absolute top-1/2 left-0 w-64 h-64 bg-teal-50 dark:bg-teal-900/10 rounded-full blur-3xl -translate-y-1/2 -z-10" />
+            {/* Background elements - Hidden on mobile */}
+            <div className="absolute top-1/2 left-0 w-64 h-64 bg-teal-50 dark:bg-teal-900/10 rounded-full blur-3xl -translate-y-1/2 -z-10 hidden md:block" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
 
                     {/* Image Column */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                         className="w-full md:w-1/2 lg:w-5/12 relative"
                     >
@@ -37,9 +37,11 @@ export default function AboutMe() {
                             </div>
                         </div>
 
-                        {/* Floating Experience Badge */}
+                        {/* Floating Experience Badge - Disabled loop on mobile */}
                         <motion.div
-                            animate={{ y: [-5, 5, -5] }}
+                            animate={{
+                                y: typeof window !== 'undefined' && window.innerWidth > 768 ? [-5, 5, -5] : 0
+                            }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                             className="absolute -right-6 top-10 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 p-4 flex items-center gap-4"
                         >
@@ -55,9 +57,9 @@ export default function AboutMe() {
 
                     {/* Content Column */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                         className="w-full md:w-1/2 lg:w-7/12"
                     >

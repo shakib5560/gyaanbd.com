@@ -9,8 +9,8 @@ export default function Hero() {
 
     return (
         <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white dark:bg-slate-950">
-            {/* Background Animated Gradient Blobs */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+            {/* Background Animated Gradient Blobs - Hidden on mobile for performance */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10 hidden md:block">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.15, scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
@@ -69,8 +69,8 @@ export default function Hero() {
 
                     {/* Right Content - Image */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
                         className="relative"
                     >
@@ -85,9 +85,11 @@ export default function Hero() {
                                     className="object-cover"
                                     priority
                                 />
-                                {/* Floating card over image */}
+                                {/* Floating card over image - Hidden loop on mobile */}
                                 <motion.div
-                                    animate={{ y: [-10, 10, -10] }}
+                                    animate={{
+                                        y: typeof window !== 'undefined' && window.innerWidth > 768 ? [-10, 10, -10] : 0
+                                    }}
                                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                                     className="absolute bottom-4 left-4 right-4 h-24 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-100 dark:border-slate-700 flex items-center justify-between px-6 p-4 shadow-xl"
                                 >
@@ -104,17 +106,19 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        {/* Floating shapes */}
-                        <motion.div
-                            animate={{ y: [-15, 15, -15], rotate: [0, 5, 0] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-8 -right-8 w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-100 dark:from-teal-900/40 to-sky-100 dark:to-sky-900/30 border border-white dark:border-slate-700 shadow-sm -z-10"
-                        />
-                        <motion.div
-                            animate={{ y: [15, -15, 15], rotate: [0, -10, 0] }}
-                            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-gradient-to-tr from-sky-100 dark:from-sky-900/30 to-teal-50 dark:to-teal-900/20 border border-white dark:border-slate-700 shadow-sm -z-10"
-                        />
+                        {/* Floating shapes - Simplified on mobile */}
+                        <div className="hidden md:block">
+                            <motion.div
+                                animate={{ y: [-15, 15, -15], rotate: [0, 5, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-8 -right-8 w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-100 dark:from-teal-900/40 to-sky-100 dark:to-sky-900/30 border border-white dark:border-slate-700 shadow-sm -z-10"
+                            />
+                            <motion.div
+                                animate={{ y: [15, -15, 15], rotate: [0, -10, 0] }}
+                                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-gradient-to-tr from-sky-100 dark:from-sky-900/30 to-teal-50 dark:to-teal-900/20 border border-white dark:border-slate-700 shadow-sm -z-10"
+                            />
+                        </div>
                     </motion.div>
 
                 </div>

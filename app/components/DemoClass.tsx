@@ -24,9 +24,9 @@ export default function DemoClass() {
         <section className="py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="bg-white dark:bg-slate-800 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] border border-slate-100 dark:border-slate-700 p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12"
                 >

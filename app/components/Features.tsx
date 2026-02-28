@@ -74,9 +74,9 @@ export default function Features() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">
@@ -100,8 +100,8 @@ export default function Features() {
                         return (
                             <motion.div
                                 key={index}
-                                variants={itemVariants}
-                                whileHover={{ y: -5, scale: 1.01 }}
+                                variants={typeof window !== 'undefined' && window.innerWidth > 768 ? itemVariants : { hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                                whileHover={typeof window !== 'undefined' && window.innerWidth > 768 ? { y: -5, scale: 1.01 } : {}}
                                 className={`group relative rounded-2xl bg-white dark:bg-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 ${isLastOdd ? 'lg:col-start-2' : ''}`}
                             >
                                 <div className="p-8 h-full flex flex-col">

@@ -35,7 +35,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="scroll-smooth dark">
+    <html lang={locale} className="dark">
       <body
         className={`${hindSiliguri.variable} ${hindSiliguri.className} font-sans antialiased bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-teal-500/30 selection:text-white transition-colors duration-300`}
       >
