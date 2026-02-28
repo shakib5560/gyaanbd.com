@@ -6,7 +6,6 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import ThemeProvider from "@/app/components/ThemeProvider";
-import SmoothScrollProvider from "@/app/components/SmoothScrollProvider";
 
 const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
@@ -42,9 +41,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
-            <SmoothScrollProvider>
-              {children}
-            </SmoothScrollProvider>
+            {children}
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
