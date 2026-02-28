@@ -36,9 +36,8 @@ export default function Navbar() {
         <nav
             className={cn(
                 "fixed top-0 w-full z-50 transition-all duration-300",
-                scrolled
-                    ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-4"
-                    : "bg-transparent py-6"
+                "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-4",
+                !scrolled && "md:bg-transparent md:dark:bg-transparent md:backdrop-blur-none md:shadow-none md:py-6"
             )}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
