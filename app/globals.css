@@ -16,3 +16,99 @@ body {
   font-family: var(--font-sans), sans-serif;
   min-height: 100vh;
 }
+
+/* =========================================
+   Premium Minimalist Scrollbar
+   ========================================= */
+
+/* Base HTML for smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar dimensions */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Slightly wider to allow padding/border */
+  height: 8px;
+}
+
+/* Scrollbar Track - Glass effect */
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.4);
+  /* slate-100 very transparent */
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  margin: 4px;
+  /* Small gap at top and bottom */
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+  /* slate-900 very transparent */
+}
+
+/* Scrollbar Thumb - Default state */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #94a3b8, #cbd5e1);
+  /* slate-400 to slate-300 */
+  border-radius: 100px;
+  /* Fully rounded */
+  border: 2px solid transparent;
+  /* Creates padding inside the 8px width, effectively making thumb 4px wide */
+  background-clip: content-box;
+  /* Ensures the background respects the transparent border */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  /* Very soft inner shadow */
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #334155, #475569);
+  /* slate-700 to slate-600 */
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Hover & Active States */
+/* Note: CSS transitions on pseudo-elements like ::-webkit-scrollbar-thumb are historically spotty,
+   but we use standard webkit properties to simulate the feeling. */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #64748b, #94a3b8);
+  /* Slightly darker slate on hover */
+  border: 1px solid transparent;
+  /* Reduces border padding, effectively increasing thumb width to 6px */
+  background-clip: content-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #475569, #64748b);
+  border: 1px solid transparent;
+  background-clip: content-box;
+  /* Soft glow */
+  box-shadow: inset 0 0 10px rgba(45, 212, 191, 0.2);
+  /* Teal tint glow */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #475569, #64748b);
+  /* Full width on active drag (0px transparent border) */
+  border: 0px solid transparent;
+  background-clip: content-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #64748b, #94a3b8);
+  border: 0px solid transparent;
+  background-clip: content-box;
+  box-shadow: inset 0 0 15px rgba(45, 212, 191, 0.4);
+}
+
+/* Firefox Fallback (Firefox doesn't support the complex styling above) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
+}
+
+.dark * {
+  scrollbar-color: #475569 transparent;
+}

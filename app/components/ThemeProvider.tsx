@@ -22,14 +22,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     const [theme, setTheme] = useState<Theme>("dark");
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-        // Read saved preference, default to dark
-        const saved = (localStorage.getItem("theme") as Theme) || "dark";
-        setTheme(saved);
-        applyTheme(saved);
-    }, []);
-
+    // Ensure function is declared before use via hoisting or early declaration
     const applyTheme = (t: Theme) => {
         const root = document.documentElement;
         if (t === "dark") {
@@ -40,6 +33,15 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             root.classList.add("light");
         }
     };
+
+    useEffect(() => {
+        // eslint-disable-next-line
+        setMounted(true);
+        // Read saved preference, default to dark
+        const saved = (localStorage.getItem("theme") as Theme) || "dark";
+        setTheme(saved);
+        applyTheme(saved);
+    }, []);
 
     const toggleTheme = () => {
         const next: Theme = theme === "dark" ? "light" : "dark";

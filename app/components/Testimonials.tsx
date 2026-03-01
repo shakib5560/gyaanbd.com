@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Quote, PlayCircle, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -120,7 +120,7 @@ export default function Testimonials() {
                                             </div>
 
                                             <p className="text-slate-300 text-sm mb-6 flex-grow leading-relaxed italic">
-                                                "{testimonial.text}"
+                                                &quot;{testimonial.text}&quot;
                                             </p>
 
                                             <div>

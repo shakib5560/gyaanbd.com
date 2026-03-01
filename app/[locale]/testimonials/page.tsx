@@ -175,7 +175,7 @@ export default function TestimonialsPage() {
                                         <Quote className="w-10 h-10 text-slate-200 dark:text-slate-800 mb-6 group-hover:text-teal-500/20 transition-colors rotate-180" />
 
                                         <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-medium mb-8 flex-grow italic">
-                                            "{testimonial.text}"
+                                            &quot;{testimonial.text}&quot;
                                         </p>
 
                                         <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-end">

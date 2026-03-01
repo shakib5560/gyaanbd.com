@@ -209,5 +209,15 @@
         "quizStartBtn": "Start Quiz",
         "lessonPrefix": "Lesson",
         "durationMins": "mins"
+    },
+    "Login": {
+        "title": "Welcome Student",
+        "subtitle": "Join to continue",
+        "google": "Continue with Google",
+        "facebook": "Continue with Facebook",
+        "phone": "Continue with Phone",
+        "phonePlaceholder": "Enter your phone number",
+        "or": "OR",
+        "close": "Close"
     }
 }
