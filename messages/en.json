@@ -125,7 +125,11 @@
         "missionTitle": "Our Mission",
         "missionDesc": "To empower individuals with confident communication skills, opening doors to global opportunities and personal growth through accessible, high-quality English education.",
         "visionTitle": "Our Vision",
-        "visionDesc": "To be the leading platform for language mastery, where innovation meets education, creating a community of fluent, global-minded communicators."
+        "visionDesc": "To be the leading platform for language mastery, where innovation meets education, creating a community of fluent, global-minded communicators.",
+        "teacherSectionTitle": "About the Teacher",
+        "teacherIntro": "With a profound passion for linguistics and years of academic excellence, our lead instructor brings a wealth of knowledge to every lesson. Dedicated to empowering students, they transform complex language concepts into accessible, engaging learning experiences.",
+        "teacherDegree1": "BA (Hons) in English — University of Dhaka",
+        "teacherDegree2": "MA in English — University of Dhaka"
     },
     "CoursesPage": {
         "pageTitle": "Courses | Gyaan",
